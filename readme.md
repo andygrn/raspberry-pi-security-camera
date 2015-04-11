@@ -24,6 +24,8 @@ Start the service with `sudo /etc/init.d/securitycam start`, stop it with `sudo 
 
 A minimal python Flask app to review and delete captured images.
 
+![The security camera web GUI](https://raw.githubusercontent.com/andygrn/raspberry-pi-security-camera/master/web_gui/screenshot.jpg)
+
 By default, the contents of this folder belong in `/var/www/securitycam`. I recommend running it through uWSGI + nginx/apache, but it can be tested with `python3 /var/www/securitycam/securitycam_gui.py` if you adjust some of the image paths in the templates.
 
 There are some settings in `securitycam_gui.py`; make sure the output directories exist and are readable.
