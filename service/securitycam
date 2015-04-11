@@ -1,0 +1,35 @@
+#!/bin/bash
+# /etc/init.d/securitycam
+
+### BEGIN INIT INFO
+# Provides:          securitycam
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Starts the security camera
+# Description:       This service is used to start and stop the security camera
+### END INIT INFO
+
+SCRIPT_PATH=/usr/local/bin/securitycam
+DAEMON="$SCRIPT_PATH/bin/python3 $SCRIPT_PATH/securitycam.py"
+DAEMON_USER=pi
+LOGFILE=$SCRIPT_PATH/daemon.log
+PIDFILE=/var/run/securitycam.pid
+
+case "$1" in 
+    start)
+        echo "Starting securitycam"
+        start-stop-daemon --start --quiet --chuid $DAEMON_USER --chdir $SCRIPT_PATH --make-pidfile --pidfile $PIDFILE --background --startas /bin/bash -- -c "exec $DAEMON > $LOGFILE 2>&1"
+        ;;
+    stop)
+        echo "Stopping securitycam"
+        start-stop-daemon --stop --quiet --pidfile $PIDFILE
+        ;;
+    *)
+        echo "Usage: /etc/init.d/securitycam start|stop"
+        exit 1
+        ;;
+esac
+
+exit 0

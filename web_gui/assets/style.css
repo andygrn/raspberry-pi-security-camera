@@ -1,0 +1,80 @@
+
+body {
+	text-align: center;
+	font-family: monospace;
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+h1 span {
+	color: #999;
+}
+
+.container {
+	max-width: 1460px;
+	margin: 0 auto;
+}
+
+.column {
+	float: left;
+	width: 29.33%;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+.panel {
+	position: fixed;
+	top: 0;
+	right: 0;
+	background-color: #fff;
+	padding: 16px;
+}
+
+.panel button {
+	font-size: 24px;
+}
+
+figcaption {
+	background-color: black;
+	color: #fff;
+	padding: 8px;
+}
+
+figcaption a {
+	color: #fff;
+}
+
+label {
+	cursor: pointer;
+	position: relative;
+	display: block;
+}
+
+input[type=checkbox] {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	font-size: 24px;
+}
+
+label img {
+	-webkit-transition: opacity 0.2s;
+	-o-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+}
+
+input[type=checkbox]:checked + img {
+	opacity: 0.2;
+}
+
+@media only screen and ( max-width: 999px ) {
+	.column {
+		width: 46%;
+	}
+}
